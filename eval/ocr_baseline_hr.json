@@ -1,0 +1,17 @@
+{
+  "dataset": "hr",
+  "pipeline": "ocr_baseline",
+  "model": "all-MiniLM-L6-v2",
+  "timestamp": "2026-11-18 17:15:12",
+  "n_pages": 1110,
+  "n_queries": 1908,
+  "n_chunks": 3268,
+  "index_time_sec": 2359.5121641159058,
+  "ndcg_cut_5": 0.1260983036340365,
+  "ndcg_cut_10": 0.13986222802784767,
+  "recall_5": 0.1198153421441058,
+  "recall_10": 0.17096521369918014,
+  "map": 0.08942772931255981,
+  "retrieval_p50_ms": 26.942350013996474,
+  "retrieval_p95_ms": 31.804184999782592
+}

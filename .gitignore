@@ -1,0 +1,15 @@
+# Personal notes and social posts
+YOUR_PATH.md
+X_THREAD.md
+LINKEDIN_POST.md
+LEARNING_TOPICS.md
+
+# Demo video scripts and outputs
+make_video.py
+make_demo_video.py
+assets/demo_video.html
+assets/demo_video.mp4
+
+# OS and Python clutter
+.DS_Store
+__pycache__/

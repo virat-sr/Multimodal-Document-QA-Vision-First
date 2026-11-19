@@ -1,0 +1,40 @@
+{
+  "hr": {
+    "dataset": "hr",
+    "model": "vidore/colqwen2.5-v0.2",
+    "prune_fraction": 0.5,
+    "timestamp": "2026-11-18 06:39:08",
+    "n_pages": 1110,
+    "n_queries": 1908,
+    "embed_time_sec": 1026,
+    "raw_patches": 831194,
+    "pruned_patches": 415086,
+    "compression_ratio": 2.002,
+    "ndcg_cut_5": 0.4232,
+    "ndcg_cut_10": 0.4567,
+    "recall_5": 0.4092,
+    "recall_10": 0.5365,
+    "map": 0.3302,
+    "retrieval_p50_ms": 104.8,
+    "retrieval_p95_ms": 138.7
+  },
+  "computer_science": {
+    "dataset": "computer_science",
+    "model": "vidore/colqwen2.5-v0.2",
+    "prune_fraction": 0.5,
+    "timestamp": "2026-11-18 08:02:19",
+    "n_pages": 1360,
+    "n_queries": 1290,
+    "embed_time_sec": 1240.7,
+    "raw_patches": 1026800,
+    "pruned_patches": 512720,
+    "compression_ratio": 2.003,
+    "ndcg_cut_5": 0.0700,
+    "ndcg_cut_10": 0.1420,
+    "recall_5": 0.1035,
+    "recall_10": 0.2749,
+    "map": 0.0568,
+    "retrieval_p50_ms": 120.4,
+    "retrieval_p95_ms": 180.6
+  }
+}

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ef4444"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="620" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#f1f5f9" font-size="20" font-weight="700">Vision RAG vs OCR RAG — Architecture</text>
+
+  <!-- Source: PDF Corpus -->
+  <rect x="320" y="56" width="260" height="42" rx="8" fill="#334155" stroke="#475569" stroke-width="1.5"/>
+  <text x="450" y="82" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="600">PDF Corpus / ViDoRe v3</text>
+
+  <!-- Split arrows -->
+  <line x1="380" y1="98" x2="220" y2="138" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="520" y1="98" x2="680" y2="138" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ====== LEFT: Vision RAG ====== -->
+  <text x="220" y="132" text-anchor="middle" fill="#3b82f6" font-size="13" font-weight="700">VISION RAG</text>
+
+  <!-- Page Images -->
+  <rect x="110" y="145" width="220" height="36" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="220" y="168" text-anchor="middle" fill="#93c5fd" font-size="12">Page Images (180 DPI)</text>
+
+  <line x1="220" y1="181" x2="220" y2="200" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- ColQwen2.5 -->
+  <rect x="110" y="205" width="220" height="42" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="220" y="224" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">ColQwen2.5</text>
+  <text x="220" y="240" text-anchor="middle" fill="#94a3b8" font-size="10">~1024 patch vectors / page</text>
+
+  <line x1="220" y1="247" x2="220" y2="266" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- DocPruner -->
+  <rect x="110" y="271" width="220" height="42" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="220" y="290" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">DocPruner</text>
+  <text x="220" y="306" text-anchor="middle" fill="#94a3b8" font-size="10">L2-norm top 50% → 2× compression</text>
+
+  <line x1="220" y1="313" x2="220" y2="332" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- MaxSim -->
+  <rect x="110" y="337" width="220" height="42" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="220" y="356" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">MaxSim Retrieval</text>
+  <text x="220" y="372" text-anchor="middle" fill="#94a3b8" font-size="10">pure numpy — top-5 pages</text>
+
+  <line x1="220" y1="379" x2="220" y2="398" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- Vision output -->
+  <rect x="135" y="403" width="170" height="30" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4"/>
+  <text x="220" y="423" text-anchor="middle" fill="#93c5fd" font-size="11">Top-5 Page Images</text>
+
+  <!-- ====== RIGHT: OCR RAG ====== -->
+  <text x="680" y="132" text-anchor="middle" fill="#ef4444" font-size="13" font-weight="700">OCR RAG</text>
+
+  <!-- PyTesseract -->
+  <rect x="570" y="145" width="220" height="36" rx="6" fill="#3b1c1c" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="680" y="168" text-anchor="middle" fill="#fca5a5" font-size="12">PyTesseract OCR</text>
+
+  <line x1="680" y1="181" x2="680" y2="200" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- Chunking -->
+  <rect x="570" y="205" width="220" height="42" rx="6" fill="#3b1c1c" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="680" y="224" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">Text Chunks</text>
+  <text x="680" y="240" text-anchor="middle" fill="#94a3b8" font-size="10">layout-aware, 1500 char</text>
+
+  <line x1="680" y1="247" x2="680" y2="266" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- Sentence-transformers -->
+  <rect x="570" y="271" width="220" height="42" rx="6" fill="#3b1c1c" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="680" y="290" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">sentence-transformers</text>
+  <text x="680" y="306" text-anchor="middle" fill="#94a3b8" font-size="10">all-MiniLM-L6-v2 (384-dim)</text>
+
+  <line x1="680" y1="313" x2="680" y2="332" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- Cosine -->
+  <rect x="570" y="337" width="220" height="42" rx="6" fill="#3b1c1c" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="680" y="356" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="600">Cosine Similarity</text>
+  <text x="680" y="372" text-anchor="middle" fill="#94a3b8" font-size="10">single-vector — top-5 chunks</text>
+
+  <line x1="680" y1="379" x2="680" y2="398" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- OCR output -->
+  <rect x="595" y="403" width="170" height="30" rx="6" fill="#3b1c1c" stroke="#ef4444" stroke-width="1" stroke-dasharray="4"/>
+  <text x="680" y="423" text-anchor="middle" fill="#fca5a5" font-size="11">Top-5 Text Chunks</text>
+
+  <!-- ====== MERGE: Gemini ====== -->
+  <line x1="220" y1="433" x2="370" y2="468" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="680" y1="433" x2="530" y2="468" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="310" y="470" width="280" height="46" rx="8" fill="#422006" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="450" y="491" text-anchor="middle" fill="#fde68a" font-size="14" font-weight="700">Gemini 2.5 Flash</text>
+  <text x="450" y="507" text-anchor="middle" fill="#d4a574" font-size="10">answer + box_2d evidence regions</text>
+
+  <line x1="450" y1="516" x2="450" y2="540" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Evaluation -->
+  <rect x="280" y="545" width="340" height="42" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="450" y="564" text-anchor="middle" fill="#bbf7d0" font-size="13" font-weight="600">Evaluation</text>
+  <text x="450" y="580" text-anchor="middle" fill="#86efac" font-size="10">NDCG@5 · Recall@k · MAP · p95 Latency</text>
+
+  <!-- Result badge -->
+  <rect x="20" y="548" width="220" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="130" y="568" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="600">Vision RAG wins 3.4×</text>
+  <text x="130" y="586" text-anchor="middle" fill="#64748b" font-size="10">NDCG@5: 0.4232 vs 0.1261</text>
+
+  <rect x="660" y="548" width="220" height="50" rx="8" fill="#3b1c1c" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="770" y="568" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">OCR RAG faster per query</text>
+  <text x="770" y="586" text-anchor="middle" fill="#64748b" font-size="10">p95: 32ms vs 139ms</text>
+</svg>
